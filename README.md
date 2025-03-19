@@ -12,11 +12,11 @@ This project focuses on analyzing data from a **fast food chain** that tested **
    - **Statistical Analysis** – Two-sample T-test calculations using Evan Miller’s T-test calculator to identify significant differences.  
 ✅ **Insights & Recommendations** – Actionable takeaways to guide marketing decisions.
 
-### 🛠️ Technologies Used  
+### 🛠️ Technologies Used:
 - **BigQuery (SQL)** – Data extraction and cleaning.  
 - **Two-sample T-test Calculator by Evan Miller** – Statistical analysis for pairwise hypothesis testing.  
 
-### 📂 Table of Contents  
+### 📂 Table of Contents:  
 1. **Goal** (Page 1)  
 2. **Hypothesis Testing** (Page 1)  
 3. **Confidence Level** (Page 1)  
@@ -29,6 +29,6 @@ This project focuses on analyzing data from a **fast food chain** that tested **
 10. **Recommendations** (Page 6)  
 11. **Appendix** (Page 6)  
 
-### 📂 Project Files
+### 📂 Project Files:
 - `marketing_campaign_ab_test.pdf` – Comprehensive test analysis
 - `sql_ab_test.txt` – SQL query.
