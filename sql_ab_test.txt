@@ -1,0 +1,52 @@
+WITH sample_size AS (
+  SELECT
+    promotion,
+    COUNT(DISTINCT location_id) AS sample_size
+  FROM `tc-da-1.turing_data_analytics.wa_marketing_campaign`
+  GROUP BY promotion -- Calculates the sample size (number of locations) for each promotion
+),
+
+promotion_data AS (
+  SELECT
+    promotion,
+    location_id,
+    ROUND(SUM(sales_in_thousands), 2) AS total_revenue
+  FROM `tc-da-1.turing_data_analytics.wa_marketing_campaign`
+  GROUP BY
+    promotion,
+    location_id -- Filters and aggregates data
+),
+
+mean_revenue AS (
+  SELECT
+    promotion,
+    ROUND(AVG(total_revenue), 3) AS mean_revenue
+  FROM promotion_data
+  GROUP BY promotion -- Calculates the mean of total revenue for each promotion
+),
+
+std_deviation AS (
+  SELECT
+    promotion,
+    ROUND(STDDEV(total_revenue), 3) AS std_deviation
+  FROM promotion_data
+  GROUP BY promotion -- Calculates the sample standard deviation for each promotion
+)
+
+SELECT
+  promotion_data.promotion,
+  promotion_data.location_id,
+  promotion_data.total_revenue,
+  sample_size.sample_size,
+  mean_revenue.mean_revenue,
+  std_deviation.std_deviation
+FROM promotion_data
+LEFT JOIN sample_size
+  USING (promotion)
+LEFT JOIN mean_revenue
+  USING (promotion)
+LEFT JOIN std_deviation
+  USING (promotion)
+ORDER BY
+  promotion_data.promotion,
+  promotion_data.total_revenue DESC;
