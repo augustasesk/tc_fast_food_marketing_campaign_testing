@@ -30,5 +30,5 @@ This project focuses on analyzing data from a **fast food chain** that tested **
 11. **Appendix** (Page 6)  
 
 ### 📂 Project Files
-- 'marketing_campaign_ab_test.pdf' – Comprehensive test analysis
-- 'sql_ab_test.txt' – SQL query.
+- `marketing_campaign_ab_test.pdf` – Comprehensive test analysis
+- `sql_ab_test.txt` – SQL query.
